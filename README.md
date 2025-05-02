@@ -40,10 +40,13 @@ python-dotenv
    ```
    pip install langchain-core langchain-groq requests python-dotenv
    ```
-3. Create a `.env` file with your Groq API key:
+3. Create a `.env` file with your API keys:
    ```
    GROQ_API_KEY=your_groq_api_key_here
+   EXCHANGE_RATE_API_KEY=your_exchange_rate_api_key_here
    ```
+
+   You can get an Exchange Rate API key by signing up at [ExchangeRate-API](https://www.exchangerate-api.com/)
 
 ## Usage
 
@@ -74,7 +77,12 @@ response = llm_with_tools.invoke(messages)
 
 ## API Used
 
-This project uses the ExchangeRate-API for fetching current exchange rates. For production use, you should register for your own API key at [ExchangeRate-API](https://www.exchangerate-api.com/).
+This project uses the ExchangeRate-API for fetching current exchange rates. You need to:
+
+1. Register for your own API key at [ExchangeRate-API](https://www.exchangerate-api.com/)
+2. Add your API key to the `.env` file as `EXCHANGE_RATE_API_KEY=your_key_here`
+
+**Important Security Note**: Never commit your `.env` file or hardcode API keys in your code. The `.env` file should be added to your `.gitignore` to prevent accidentally exposing sensitive credentials.
 
 ## License
 
